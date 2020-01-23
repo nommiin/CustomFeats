@@ -57,7 +57,7 @@ global.featScrollLerp = 128;
 global.featSave = ds_map_create();
 __FeatPopulate();
 
-#define __FeatLoadGame
+#define __FeatLoad
 global.featSave = ModSaveDataFetch();
 __FeatPopulate();
 
@@ -108,7 +108,7 @@ if (keyboard_check(9) == true && instance_exists(objPlayer) == true) {
             draw_text_ext_transformed(_featOffset.x + 6.75, (_featOffset.y + 9) - 36, _featGet.Description, -1, 328, 0.75, 0.75, 0);
             var _featProgress = FeatGetProgress(i + global.featOffset);
             draw_line_width_colour(_featOffset.x - 148, _featOffset.y + 32, _featOffset.x + 148, _featOffset.y + 32, 9, c_dkgray, c_dkgray);
-            draw_line_width_colour(_featOffset.x - 148, _featOffset.y + 32, (_featOffset.x - 148) + ((148 * 2) * (_featProgress / 100)), _featOffset.y + 32, 9, _featColour, _featColour);
+            draw_line_width_colour(_featOffset.x - 148, _featOffset.y + 32, (_featOffset.x - 148) + clamp(((148 * 2) * (_featProgress / 100)), 0, 148 * 2), _featOffset.y + 32, 9, _featColour, _featColour);
             draw_set_halign(fa_middle);
             draw_text_transformed(_featOffset.x + 11.25, _featOffset.y + 30, string(min(100, round(_featProgress))) + "%", 1.25, 1.25, 0);
         }
