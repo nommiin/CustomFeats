@@ -1,8 +1,8 @@
 # CustomFeats
-A mod that allows you to create custom feats in Forager via mods. Press TAB to view your feats and their progress.
+A mod template that allows you to create custom feats in Forager via mods. Press TAB to view your feats and their progress.
 
 ## Concept
-This mod allows you to create custom feats that have their own names, descriptions, track progress per save-file, and view which feats are unlocked along with their progress in the custom UI.
+This mod template allows you to create custom feats that have their own names, descriptions, track progress per save-file, and view which feats are unlocked along with their progress in the custom UI. Provided are 3 example feats; one that instantly unlocks, one that unlocks after progress is being set for it, and one that unlocks via an update script.
 
 ## How To Use
 1. Download the mod files from [here](https://github.com/nommiin/CustomFeats/archive/master.zip) and copy them into your mods directory!
@@ -10,7 +10,7 @@ This mod allows you to create custom feats that have their own names, descriptio
 3. Create new feats by using the `FeatCreate` function
 
 ## How To Use In Your Mod
-If you'd like to use CustomFeats in your already existing mod, then simply copy Feats.gml into your mod's directory. The GML file will automatically be loaded with your main script, just make sure to call the scripts prefixed with `__` (such as `__FeatMain`, `__FeatNewGame`, `__FeatLoad`) in their respective events (see "Event Functions")
+If you'd like to use CustomFeats in your already existing mod, then simply copy Feats.gml into your mod's directory. The GML file will automatically be loaded with your main script, just make sure to call the scripts prefixed with `__` (such as `__FeatMain`, `__FeatNewGame`, `__FeatLoad`) in their respective events (see "Event Functions" below)
 
 ## Mod Functions
 This is an outline of each public function that can be used to create/edit feats in your own mod:
@@ -47,13 +47,16 @@ FeatUnlock( index )
 ```
 
 ## Notes
-* Update functions must have a redundant first argument in the script definition due to how `script_execute` functions, update functions should be defined like so for them to function properly: `#define MyFeatUpdate( _, progress )`
+* Update functions must have a redundant first argument in the script definition due to how `script_execute` functions, update functions should be defined like so for them to function properly: `#define MyFeatUpdate( _, progress )` (note the underscore argument)
 * You are unable to set the feat icon and cosmetic reward sprites for the feat unlock popup due to how Forager functions internally
+* Feats are tied to save files, it is reccomended that you create a new save file to test out your own feats.
 
 ## Event Functions
-Below is a list of all the event functions with their respective Forager events they should be called in, this must be in your own mod otherwise CustomFeats will likely not function properly.
+Below is a list of all the event functions with their respective Forager events they should be called in, ***these must*** be in your own mod otherwise CustomFeats will likely not function properly.
 * `__FeatMain` -> Main
 * `__FeatNewGame` -> OnNewGame
 * `__FeatLoad` -> OnLoad
 * `__FeatSystemStep` -> OnSystemStep
 * `__FeatDrawGUI` -> OnDrawGUI
+
+`__FeatPopulate` is not required, as both `__FeatNewGame` and `__FeatLoad` call this script internally.
