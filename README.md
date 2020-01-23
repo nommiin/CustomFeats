@@ -50,7 +50,7 @@ FeatUnlock( index )
 ## Notes
 * Update functions must have a redundant first argument in the script definition due to how `script_execute` functions, update functions should be defined like so for them to function properly: `#define MyFeatUpdate( _, progress )` (note the underscore argument)
 * You are unable to set the feat icon and cosmetic reward sprites for the feat unlock popup due to how Forager functions internally
-* Feats are tied to save files, it is reccomended that you create a new save file to test out your own feats.
+* Feats are tied to save files, it is recommended that you create a new save file to test out your own feats.
 
 ## Event Functions
 Below is a list of all the event functions with their respective Forager events they should be called in, ***these must*** be in your own mod otherwise CustomFeats will likely not function properly.
