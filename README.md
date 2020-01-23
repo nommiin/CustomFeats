@@ -8,6 +8,7 @@ This mod template allows you to create custom feats that have their own names, d
 1. Download the mod files from [here](https://github.com/nommiin/CustomFeats/archive/master.zip) and copy them into your mods directory!
 2. Open ___Main.gml___ and modify the __Main__ event in the file
 3. Create new feats by using the `FeatCreate` function
+4. Note: You are free to delete both the `LICENSE` and `README` files, as they are GitHub-related files.
 
 ## How To Use In Your Mod
 If you'd like to use CustomFeats in your already existing mod, then simply copy Feats.gml into your mod's directory. The GML file will automatically be loaded with your main script, just make sure to call the scripts prefixed with `__` (such as `__FeatMain`, `__FeatNewGame`, `__FeatLoad`) in their respective events (see "Event Functions" below)
